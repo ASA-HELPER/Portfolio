@@ -16,7 +16,7 @@ export const addNewApplication = catchAsyncErrors(async(req,resp,next)=>{
     }
 
     const cloudinaryResponse = await cloudinary.uploader.upload(
-        avatar.tempFilePath,
+        image.tempFilePath,
         {folder:"PORTFOLIO_TECH_STACK"}
     )
     
@@ -35,7 +35,7 @@ export const addNewApplication = catchAsyncErrors(async(req,resp,next)=>{
             url:cloudinaryResponse.secure_url
         }
     })
-    resp.status(200).json({
+    resp.status(201).json({
         success:true,
         techStack,
         message:"New Tech Stack is added"
