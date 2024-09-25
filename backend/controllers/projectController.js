@@ -43,7 +43,13 @@ export const addNewProject = catchAsyncErrors(async (req, resp, next) => {
 })
 
 
-export const getAllProjects = catchAsyncErrors(async (req, resp, next) => {})
+export const getAllProjects = catchAsyncErrors(async (req, resp, next) => {
+    const projects = await Project.find();
+    resp.status(200).json({
+        success:true,
+        projects
+    })
+})
 
 
 export const deleteProject = catchAsyncErrors(async (req, resp, next) => {
@@ -107,4 +113,14 @@ export const updateProject = catchAsyncErrors(async (req, resp, next) => {
 })
 
 
-export const getSingleProject = catchAsyncErrors(async (req, resp, next) => {})
+export const getSingleProject = catchAsyncErrors(async (req, resp, next) => {
+    const {id} = req.params;
+    const project = await Project.findById(id);
+    if(!project){
+        return next(new ErrorHandler("Project not found!",404))
+    }
+    resp.send(200).json({
+        success:true,
+        project,
+    })
+})
