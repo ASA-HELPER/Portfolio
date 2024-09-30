@@ -163,8 +163,7 @@ export const updatePassword = catchAsyncErrors(async(req,resp,next)=>{
 })
 
 export const getUserForPortfolio = catchAsyncErrors(async(req,resp,next)=>{
-    // place here your user id from the mongo db database after registration
-    const id = "";
+    const id = `${process.env.USER_MONGO_ID}`;
     const user = await User.findById(id);
     resp.status(200).json({
         success:true,
