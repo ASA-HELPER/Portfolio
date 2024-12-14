@@ -96,6 +96,7 @@ export const updateProfile = catchAsyncErrors(async(req,resp,next)=>{
         twitterURL:req.body.twitterURL,
         linkedInURL:req.body.linkedInURL,
     };
+
     if(req.files && req.files.avatar)
     {
         const avatar = req.files.avatar;
@@ -105,15 +106,15 @@ export const updateProfile = catchAsyncErrors(async(req,resp,next)=>{
         const newProfileImage = await cloudinary.uploader.upload(
             avatar.tempFilePath,
             {
-              folder: "AVATARS",
+                folder: "AVATARS",
             }
-          );
+        );
         newUserData.avatar = {
             public_id: newProfileImage.public_id,
             url: newProfileImage.secure_url,
         };
     }
-      
+    
     if (req.files && req.files.resume) {
         const resume = req.files.resume;
         const user = await User.findById(req.user.id);
@@ -129,11 +130,13 @@ export const updateProfile = catchAsyncErrors(async(req,resp,next)=>{
             url: newResume.secure_url,
         };
     }
-    const user = await User.findByIdAndUpdate(req.body.id, newUserData, {
+
+    const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
         new: true,
         runValidators: true,
         useFindAndModify:false,
     });
+
     resp.status(200).json({
         success:true,
         message:"Profile Updated!",
@@ -146,8 +149,8 @@ export const updatePassword = catchAsyncErrors(async(req,resp,next)=>{
     if(!currentPassword || !newPassword || !confirmNewPassword){
         return next(new ErrorHandler("Please fill all fields!"))
     }
-    const user = await User.findById(req.body.id).select("+password");
-    const isPasswordMatched = await User.comparePassword(currentPassword);
+    const user = await User.findById(req.user.id).select("+password");
+    const isPasswordMatched = await user.comparePassword(currentPassword);
     if(!isPasswordMatched){
         return next(new ErrorHandler("Current password is incorrect!"))
     }
@@ -178,7 +181,7 @@ export const forgotPassword = catchAsyncErrors(async(req,resp,next)=>{
     }
     const resetToken = user.getResetPasswordToken();
     await user.save({validateBeforeSave:false});
-    const resetPasswordUrl = `${process.env.DASHBOARD_URL}/password/rest/${resetToken}`;
+    const resetPasswordUrl = `${process.env.DASHBOARD_URL}/password/reset/${resetToken}`;
     const message = `Your reset password token is: \n\n ${resetPasswordUrl} \n\n If you have not requested for this, please ignore it.`
     try {
         await sendEmail({

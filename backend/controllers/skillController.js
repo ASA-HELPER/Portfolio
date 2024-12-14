@@ -26,6 +26,7 @@ export const addNewSkill = catchAsyncErrors(async(req,resp,next)=>{
             "Cloudinary Error:",
             cloudinaryResponse.error ||"Unknown Cloudinary Error"
         )
+        return next(new ErrorHandler("Failed to upload avatar to Cloudinary", 500));
     }
 
     const skill = await Skill.create({

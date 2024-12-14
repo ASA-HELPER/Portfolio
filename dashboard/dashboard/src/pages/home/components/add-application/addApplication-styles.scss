@@ -1,0 +1,120 @@
+@import '../../../../theme/';
+
+.addApplication{
+    &__container{
+        border: $spacing-1 solid $raisin-black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: $spacing-20 auto;
+        padding: $spacing-20;
+        gap:$spacing-10;
+        width: 70%;
+    }
+
+    &__title{
+        font-family: $primary-font;
+    }
+
+    &__skillImage{
+        height: $spacing-80;
+        width: $spacing-80;
+        border-radius: $spacing-10;
+    }
+
+    &__svg{
+        height: $spacing-100;
+        width: $spacing-100;
+    }
+
+    &__inputImgLabel{
+        color: $raisin-black;
+        font-family: $primary-font;
+        font-weight: bold;
+        font-size: $spacing-14;
+    }
+
+    &__inputLabels.MuiFormLabel-root{
+        color: $raisin-black;
+        font-family: $primary-font;
+        font-weight: bold;
+        font-size: $spacing-14;
+    }
+
+    &__inputImgContainer{
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-10;
+        width: 100%;
+    }
+
+    &__inputImgFieldContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: $spacing-1 solid $silver-foil;
+        border-radius: $spacing-5;
+        padding: $spacing-10;
+    }
+
+    &__inputImgFieldSubcontainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: $spacing-10;
+        width: 100%;
+    }
+
+    &__skillInputField{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: $spacing-10;
+        line-height: $spacing-5;
+        color: $davy-grey;
+    }
+
+    &__fileUploadLabel{
+        position: relative;
+        cursor: pointer;
+        padding: $spacing-1;
+        border-radius: $spacing-5;
+        background-color: get-color($neutral, 100);
+        font-weight: bold;
+        color: $raisin-black;
+        text-transform: none;
+        font-family: $primary-font;
+
+        &:hover {
+            color: $raisin-black;
+        }
+
+        &:focus-within {
+            outline: none;
+            box-shadow: $spacing-0 $spacing-0 $spacing-0 $spacing-2 $raisin-black;
+            margin: $spacing-2;
+        }
+    }
+
+    &__fileUploadInput{
+        display: none;
+    }
+
+    &__fileUploadTitle{
+        padding-left: $spacing-3;
+        font-size: $spacing-10;
+        line-height: $spacing-5;
+        color: $davy-grey;
+        font-family: $primary-font;
+    }
+
+    &__fileUploadSubtitle{
+        font-size: $spacing-10;
+        line-height: $spacing-5;
+        color: $davy-grey;
+        font-family: $primary-font;
+    }
+}

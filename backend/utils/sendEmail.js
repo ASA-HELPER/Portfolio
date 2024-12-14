@@ -18,5 +18,5 @@ export const sendEmail = async(options)=>{
         text:options.message,
     };
 
-    await tranporter.sendEmail(mailOptions);
+    await tranporter.sendMail(mailOptions);
 }

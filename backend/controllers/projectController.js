@@ -1,6 +1,7 @@
 import { catchAsyncErrors } from "../middlewares/catchAsyncErrors.js"
 import ErrorHandler from "../middlewares/error.js"
 import {Project} from "../models/projectSchema.js"
+import {v2 as cloudinary} from "cloudinary";
 
 export const addNewProject = catchAsyncErrors(async (req, resp, next) => {
     if(!req.files || Object.keys(req.files).length===0){
@@ -77,7 +78,7 @@ export const updateProject = catchAsyncErrors(async (req, resp, next) => {
         deployed: req.body.deployed,
     }
 
-    if(!title || !description || !gitRepoLink || !projectLink || !technologies || !stack || !deployed){
+    if(!newProjectData.title || !newProjectData.description || !newProjectData.gitRepoLink || !newProjectData.projectLink || !newProjectData.technologies || !newProjectData.stack || !newProjectData.deployed){
         return next(new ErrorHandler("Please fill all fields values!",400));
     }
 
@@ -119,8 +120,9 @@ export const getSingleProject = catchAsyncErrors(async (req, resp, next) => {
     if(!project){
         return next(new ErrorHandler("Project not found!",404))
     }
-    resp.send(200).json({
+    resp.status(200).json({
         success:true,
+        message:"Project is found",
         project,
     })
 })

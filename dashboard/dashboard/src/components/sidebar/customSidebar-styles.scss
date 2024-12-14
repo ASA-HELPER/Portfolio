@@ -1,0 +1,53 @@
+@import '../../theme/';
+
+.sidebar {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-30;
+    padding: $spacing-10;
+    background-color: $davy-grey;
+    border-right: 1px solid $raisin-black;
+  
+    &__nav {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-10;
+    }
+  
+    &__link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: $spacing-10;
+      border-radius: $spacing-10;
+      color: $raisin-black;
+      transition: $davy-grey 0.3s ease, color 0.3s ease;
+  
+      &:hover {
+        background-color: $davy-grey;
+        color: $raisin-black;
+      }
+  
+      &--active {
+        background-color: $davy-grey;
+        color: $raisin-black;
+      }
+    }
+  
+    &__logout {
+      margin-top: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: $spacing-10;
+      color: $raisin-black;
+      cursor: pointer;
+      transition: color 0.3s;
+  
+      &:hover {
+        color: $raisin-black;
+      }
+    }
+  }
+  

@@ -63,7 +63,7 @@ export const deleteApplications = catchAsyncErrors(async(req,resp,next)=>{
     
     const techStackImageId = techStack.image.public_id;
     await cloudinary.uploader.destroy(techStackImageId);
-    await techStack.remove();
+    await techStack.deleteOne();
     resp.status(200).json({
         success:true,
         message:"Tech Stack is deleted",
