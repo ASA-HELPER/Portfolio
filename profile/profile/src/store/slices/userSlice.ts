@@ -44,7 +44,7 @@ const userSlice = createSlice({
 export const getUser = () => async(dispatch:AppDispatch)=>{
     dispatch(userSlice.actions.loadUserRequest());
     try {
-        const {data} = await axios.get("http://localhost:8000/api/v1/user/me/portfolio",{withCredentials:true});
+        const {data} = await axios.get("https://portfolio-13of.onrender.com/api/v1/user/me/portfolio",{withCredentials:true});
         dispatch(userSlice.actions.loadUserSuccess(data.user));
         dispatch(userSlice.actions.clearAllErrors());
     } catch (error:any) {

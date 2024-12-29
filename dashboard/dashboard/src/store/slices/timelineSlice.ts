@@ -73,7 +73,7 @@ export const getAllTimeline = () => async (dispatch:AppDispatch) => {
   dispatch(timelineSlice.actions.getAllTimelineRequest());
   try {
     const response = await axios.get(
-      "http://localhost:8000/api/v1/timeline/getall",
+      "https://portfolio-13of.onrender.com/api/v1/timeline/getall",
       { withCredentials: true }
     );
     dispatch(
@@ -91,7 +91,7 @@ export const addNewTimeline = (data: any) => async (dispatch:AppDispatch) => {
   dispatch(timelineSlice.actions.addNewTimelineRequest());
   try {
     const response = await axios.post(
-      "http://localhost:8000/api/v1/timeline/add",
+      "https://portfolio-13of.onrender.com/api/v1/timeline/add",
       data,
       {
         withCredentials: true,

@@ -75,7 +75,7 @@ export const getAllSoftwareApplications = () => async (dispatch:AppDispatch) => 
   );
   try {
     const response = await axios.get(
-      "http://localhost:8000/api/v1/techStack/getall",
+      "https://portfolio-13of.onrender.com/api/v1/techStack/getall",
       { withCredentials: true }
     );
     dispatch(
@@ -99,7 +99,7 @@ export const addNewSoftwareApplication = (data:any) => async (dispatch:AppDispat
   );
   try {
     const response = await axios.post(
-      "http://localhost:8000/api/v1/techStack/add",
+      "https://portfolio-13of.onrender.com/api/v1/techStack/add",
       data,
       {
         withCredentials: true,
@@ -127,7 +127,7 @@ export const deleteSoftwareApplication = (id:string) => async (dispatch:AppDispa
   );
   try {
     const response = await axios.delete(
-      `http://localhost:8000/api/v1/techStack/delete/${id}`,
+      `https://portfolio-13of.onrender.com/api/v1/techStack/delete/${id}`,
       {
         withCredentials: true,
       }

@@ -43,7 +43,7 @@ export const getAllTimeline = () => async (dispatch:AppDispatch) => {
   dispatch(timelineSlice.actions.getAllTimelineRequest());
   try {
     const response = await axios.get(
-      "http://localhost:8000/api/v1/timeline/getall",
+      "https://portfolio-13of.onrender.com/api/v1/timeline/getall",
       { withCredentials: true }
     );
     dispatch(
