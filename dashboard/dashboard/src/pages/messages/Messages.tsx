@@ -6,16 +6,10 @@ import { clearAllMessageErrors, deleteMessage, getAllMessages, resetMessagesSlic
 import { RootState } from '../../store/store';
 import { useAppDispatch } from '../../hooks/storeHooks';
 import { toast } from 'react-toastify';
-import CustomButton from '../../components/button/CustomButton';
 import { IconButton, Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 const Messages = () => {
-  const navigateTo = useNavigate();
-  const handleReturnToDashboard = () => {
-    navigateTo("/");
-  };
-
   const { messages, loading, error, message } = useSelector(
     (state:RootState) => state.messages
   );
@@ -43,7 +37,6 @@ const Messages = () => {
     <div className='messages__container'>
       <div className='messages__header'>
         <Typography className='messages__headerTitle'>Messages</Typography>
-        <CustomButton handleClick={handleReturnToDashboard} title='Return To Dashboard' fullWidth={false}/>
       </div>
       <div className='messages__subcontainer'>
         {

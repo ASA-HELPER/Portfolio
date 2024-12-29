@@ -85,6 +85,7 @@ const Dashboard = () => {
     setProjectId(row.id);
     dispatch(deleteProject(row.id));
     // navigateTo(`/update/project/${row.id}`);
+    // navigateTo(`/view/project/${row.id}`);
   };
 
   const handleViewProfile = () =>{

@@ -8,9 +8,10 @@ import { clearAllProjectErrors, getSingleProject } from '../../store/slices/proj
 import { toast } from 'react-toastify';
 import { Typography } from '@mui/material';
 import CustomButton from '../../components/button/CustomButton';
+import { CustomSpinner } from '../../components';
 
 const ViewProject = () => {
-  const { error,singleProject } = useSelector((state:RootState) => state.project);
+  const { error,singleProject,loading } = useSelector((state:RootState) => state.project);
   const dispatch = useAppDispatch();
   const { id } = useParams();
 
@@ -31,7 +32,6 @@ const ViewProject = () => {
   const descriptionList = description?.split(". ");
   const technologiesList = technologies?.split(", ");
 
-
   useEffect(() => {
     dispatch(getSingleProject(id));
 
@@ -40,6 +40,23 @@ const ViewProject = () => {
       dispatch(clearAllProjectErrors());
     }
   }, [id, error]);
+
+  useEffect(() => {
+    if (singleProject) {
+      setTitle(singleProject.title || "");
+      setDescription(singleProject.description || "");
+      setTechnologies(singleProject.technologies || "");
+      setStack(singleProject.stack || "");
+      setGitRepoLink(singleProject.gitRepoLink || "");
+      setDeployed(singleProject.deployed || "");
+      setProjectLink(singleProject.projectLink || "");
+      setProjectBanner(singleProject.image?.url || "");
+    }
+  }, [singleProject]);
+
+  if (loading) {
+    return <CustomSpinner color='coral' spinnerSize={100}/>;
+  }
 
   return (
     <div className='viewProject__container'>
@@ -52,7 +69,7 @@ const ViewProject = () => {
         alt="projectBanner"
         className="viewProject__image"
       />
-      <div>
+      <div className='viewProject__subtitleContainer'>
         <Typography className='viewProject__subtitle'>Description</Typography>
         <ul>
           {descriptionList?.map((item, index) => (
@@ -60,7 +77,7 @@ const ViewProject = () => {
           ))}
         </ul>
       </div>
-      <div>
+      <div className='viewProject__subtitleContainer'>
         <Typography className='viewProject__subtitle'>Technologies</Typography>
         <ul>
           {technologiesList?.map((item, index) => (
@@ -68,15 +85,15 @@ const ViewProject = () => {
           ))}
         </ul>
       </div>
-      <div>
+      <div className='viewProject__subtitleContainer'>
         <Typography className='viewProject__subtitle'>Stack</Typography>
         <Typography className='viewProject__value'>{stack}</Typography>
       </div>
-      <div>
+      <div className='viewProject__subtitleContainer'>
         <Typography className='viewProject__subtitle'>Deployed</Typography>
         <Typography className='viewProject__value'>{deployed}</Typography>
       </div>
-      <div>
+      <div className='viewProject__subtitleContainer'>
         <Typography className='viewProject__subtitle'>Github Repository Link</Typography>
         <Link
           className="viewProject__link"
@@ -86,7 +103,7 @@ const ViewProject = () => {
           {gitRepoLink}
         </Link>
       </div>
-      <div>
+      <div className='viewProject__subtitleContainer'>
         <Typography className='viewProject__subtitle'>Project Link</Typography>
         <Link
           className="viewProject__link"

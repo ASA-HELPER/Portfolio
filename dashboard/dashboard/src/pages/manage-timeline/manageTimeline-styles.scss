@@ -1,0 +1,27 @@
+@import '../../theme/';
+
+.manageTimeline{
+    &__container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: $spacing-20 auto;
+        padding: $spacing-20;
+        gap:$spacing-10;
+        width: 90%;
+        height: 100%;
+    }
+
+    &__subContainer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__title.MuiTypography-root{
+        font-size: $spacing-30;
+        font-family: $primary-font;
+        font-weight: bold;
+    }
+}

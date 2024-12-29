@@ -1,0 +1,85 @@
+@import '../../theme/';
+
+.myapps {
+    &__container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-20;
+    }
+  
+    &__title.MuiTypography-root {
+      text-transform: uppercase;
+      background-image: linear-gradient(
+        -225deg,
+        #231557 0%,
+        #44107a 29%,
+        #ff1361 67%,
+        #fff800 100%
+      );
+      background-size: auto auto;
+      background-clip: border-box;
+      background-size: 200% auto;
+      color: #fff;
+      background-clip: text;
+      text-fill-color: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textclip 2s linear infinite;
+      display: inline-block;
+      font-size: $spacing-50;
+    }
+  
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: $spacing-20;
+  
+      @media (min-width: 640px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+  
+      @media (min-width: 768px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+  
+      @media (min-width: 1024px) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  
+    &__card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: $spacing-10;
+      border-radius: $spacing-8;
+      box-shadow: $spacing-0 $spacing-4 $spacing-6 rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+  
+      &:hover {
+        transform: scale(1.05);
+        background-color: $coral-red;
+      }
+    }
+  
+    &__image {
+      object-fit: contain;
+      width: $spacing-100;
+      height: $spacing-100;
+      margin-bottom: $spacing-10;
+    }
+  
+    &__text.MuiTypography-root{
+      font-size: $spacing-20;
+      color: $raisin-black;
+      font-weight: $font-weight-semi-bold;
+    }
+
+    &__separator {
+      margin-top: $spacing-10;
+      border-top: $spacing-5 solid #ddd;
+      width: 100%;
+    }
+}  

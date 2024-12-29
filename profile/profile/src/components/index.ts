@@ -1,0 +1,12 @@
+export {default as About} from './about/About';
+export {default as Contact} from './contact/Contact';
+export {default as CustomButton} from './button/CustomButton';
+export {default as CustomInput} from './input/CustomInput';
+export {default as CustomSpinner} from './spinner/CustomSpinner';
+export {default as Footer} from './footer/Footer';
+export {default as Hero} from './hero/Hero';
+export {default as MyApplications} from './my-applications/MyApplications';
+export {default as Projects} from './projects/Projects';
+export {default as Skills} from './skills/Skills';
+export {default as Timeline} from './timeline/Timeline';
+export {default as TimelineCard} from './timeline-card/TimelineCard';
