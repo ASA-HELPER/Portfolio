@@ -59,7 +59,7 @@ export const getAllProjects = () => async (dispatch:AppDispatch) => {
   dispatch(projectSlice.actions.getAllProjectsRequest());
   try {
     const response = await axios.get(
-      "http://localhost:8000/api/v1/project/getall",
+      "https://portfolio-13of.onrender.com/api/v1/project/getall",
       { withCredentials: true }
     );
     dispatch(
@@ -77,7 +77,7 @@ export const getSingleProject = (id:string) => async (dispatch:AppDispatch) => {
   dispatch(projectSlice.actions.getSingleProjectRequest());
   try {
     const response = await axios.get(
-      `http://localhost:8000/api/v1/project/get/${id}`,
+      `https://portfolio-13of.onrender.com/api/v1/project/get/${id}`,
       { withCredentials: true }
     );
     dispatch(

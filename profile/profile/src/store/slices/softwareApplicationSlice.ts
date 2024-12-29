@@ -45,7 +45,7 @@ export const getAllSoftwareApplications = () => async (dispatch:AppDispatch) => 
   );
   try {
     const response = await axios.get(
-      "http://localhost:8000/api/v1/techStack/getall",
+      "https://portfolio-13of.onrender.com/api/v1/techStack/getall",
       { withCredentials: true }
     );
     dispatch(

@@ -113,7 +113,7 @@ const userSlice = createSlice({
 export const login = (email: string,password: string) => async(dispatch:AppDispatch)=>{
     dispatch(userSlice.actions.loginRequest());
     try {
-        const {data} = await axios.post("http://localhost:8000/api/v1/user/login",{email,password},{withCredentials:true,headers:{"Content-Type":"application/json"}});
+        const {data} = await axios.post("https://portfolio-13of.onrender.com/api/v1/user/login",{email,password},{withCredentials:true,headers:{"Content-Type":"application/json"}});
         dispatch(userSlice.actions.loginSuccess(data.user));
         dispatch(userSlice.actions.clearAllErrors());
     } catch (error:any) {
@@ -124,7 +124,7 @@ export const login = (email: string,password: string) => async(dispatch:AppDispa
 export const getUser = () => async(dispatch:AppDispatch)=>{
     dispatch(userSlice.actions.loadUserRequest());
     try {
-        const {data} = await axios.get("http://localhost:8000/api/v1/user/me",{withCredentials:true});
+        const {data} = await axios.get("https://portfolio-13of.onrender.com/api/v1/user/me",{withCredentials:true});
         dispatch(userSlice.actions.loadUserSuccess(data.user));
         dispatch(userSlice.actions.clearAllErrors());
     } catch (error:any) {
@@ -134,7 +134,7 @@ export const getUser = () => async(dispatch:AppDispatch)=>{
 
 export const logout = () => async(dispatch:AppDispatch)=>{
     try {
-        const {data} = await axios.get("http://localhost:8000/api/v1/user/logout",{withCredentials:true});
+        const {data} = await axios.get("https://portfolio-13of.onrender.com/api/v1/user/logout",{withCredentials:true});
         dispatch(userSlice.actions.logoutSuccess(data.message));
         dispatch(userSlice.actions.clearAllErrors());
     } catch (error:any) {
@@ -145,7 +145,7 @@ export const logout = () => async(dispatch:AppDispatch)=>{
 export const updatePassword = (currentPassword:string,newPassword:string,confirmNewPassword:string)=>async(dispatch:AppDispatch)=>{
     dispatch(userSlice.actions.updatePasswordRequest());
     try {
-        const {data} = await axios.put("http://localhost:8000/api/v1/user/update/password",{currentPassword,newPassword,confirmNewPassword},{withCredentials:true,headers:{"Content-Type":"application/json"}})
+        const {data} = await axios.put("https://portfolio-13of.onrender.com/api/v1/user/update/password",{currentPassword,newPassword,confirmNewPassword},{withCredentials:true,headers:{"Content-Type":"application/json"}})
         dispatch(userSlice.actions.updatePasswordSuccess(data.message));
         dispatch(userSlice.actions.clearAllErrors());
     } catch (error:any) {
@@ -156,7 +156,7 @@ export const updatePassword = (currentPassword:string,newPassword:string,confirm
 export const updateProfile = (updateData:any)=>async(dispatch:AppDispatch)=>{
     dispatch(userSlice.actions.updateProfileRequest());
     try {
-        const response = await axios.put("http://localhost:8000/api/v1/user/update/me",updateData,{withCredentials:true,headers:{"Content-Type":"multipart/form-data"}})
+        const response = await axios.put("https://portfolio-13of.onrender.com/api/v1/user/update/me",updateData,{withCredentials:true,headers:{"Content-Type":"multipart/form-data"}})
         dispatch(userSlice.actions.updateProfileSuccess(response.data.message));
         dispatch(userSlice.actions.clearAllErrors());
     } catch (error:any) {

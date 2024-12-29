@@ -41,7 +41,7 @@ export const sendMessage = (senderName:string,subject:string,message:string) => 
   dispatch(messageSlice.actions.sendMessageRequest());
   try {
     const response = await axios.post(
-      "http://localhost:8000/api/v1/message/send",
+      "https://portfolio-13of.onrender.com/api/v1/message/send",
       { senderName, subject, message },
       {
         withCredentials: true,

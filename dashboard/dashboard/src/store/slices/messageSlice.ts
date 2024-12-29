@@ -58,7 +58,7 @@ export const getAllMessages = () => async (dispatch:AppDispatch) => {
   dispatch(messageSlice.actions.getAllMessagesRequest());
   try {
     const response = await axios.get(
-      "http://localhost:8000/api/v1/message/getall",
+      "https://portfolio-13of.onrender.com/api/v1/message/getall",
       { withCredentials: true }
     );
     dispatch(
@@ -76,7 +76,7 @@ export const deleteMessage = (id:string) => async (dispatch:AppDispatch) => {
   dispatch(messageSlice.actions.deleteMessageRequest());
   try {
     const response = await axios.delete(
-      `http://localhost:8000/api/v1/message/delete/${id}`,
+      `https://portfolio-13of.onrender.com/api/v1/message/delete/${id}`,
       {
         withCredentials: true,
       }

@@ -43,7 +43,7 @@ export const getAllSkills = () => async (dispatch:AppDispatch) => {
   dispatch(skillSlice.actions.getAllSkillsRequest());
   try {
     const response = await axios.get(
-      "http://localhost:8000/api/v1/skill/getall",
+      "https://portfolio-13of.onrender.com/api/v1/skill/getall",
       { withCredentials: true }
     );
     dispatch(skillSlice.actions.getAllSkillsSuccess(response.data.skills));
