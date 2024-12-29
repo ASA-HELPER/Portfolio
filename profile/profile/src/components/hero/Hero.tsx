@@ -33,31 +33,31 @@ const Hero = () => {
         />
       </h2>
       <div className="hero__socialLinks">
-        <Link to={user.instagramURL} target="_blank">
+        <Link to={user?.instagramURL} target="_blank">
           <IconButton className="hero__socialIcon">
             <Instagram color="secondary" />
           </IconButton>
         </Link>
-        <Link to={user.facebookURL} target="_blank">
+        <Link to={user?.facebookURL} target="_blank">
           <IconButton className="hero__socialIcon">
             <Facebook color="primary" />
           </IconButton>
         </Link>
-        <Link to={user.linkedInURL} target="_blank">
+        <Link to={user?.linkedInURL} target="_blank">
           <IconButton className="hero__socialIcon">
             <LinkedIn color="primary" />
           </IconButton>
         </Link>
       </div>
       <div className="hero__buttonsContainer">
-        <Link to={user.githubURL} target="_blank">
+        <Link to={user?.githubURL} target="_blank">
           <CustomButton title="Github" variant={ButtonVariant.Contained} className="hero__githubButton" startIcon={<GitHub />}/>
         </Link>
-        <Link to={user.resume?.url} target="_blank">
+        <Link to={user?.resume?.url} target="_blank">
           <CustomButton title="Resume" variant={ButtonVariant.Outlined} className="hero__resumeButton" startIcon={<OpenInNew />}/>
         </Link>
       </div>
-      <p className="hero__aboutMe">{user.aboutMe}</p>
+      <p className="hero__aboutMe">{user?.aboutMe}</p>
       <hr className="hero__separator" />
     </div>
   );
