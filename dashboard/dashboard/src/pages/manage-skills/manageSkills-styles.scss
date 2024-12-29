@@ -1,0 +1,59 @@
+@import '../../theme/';
+
+.manageSkills{
+    &__container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: $spacing-20 auto;
+        padding: $spacing-20;
+        gap:$spacing-10;
+        width: 90%;
+        height: 100%;
+    }
+
+    &__subContainer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__title.MuiTypography-root{
+        font-size: $spacing-30;
+        font-family: $primary-font;
+        font-weight: bold;
+    }
+
+    &__skillsContainer{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: $spacing-10;
+    }
+
+    &__skillsSubcontainer{
+        display: flex;
+        flex-direction: column;
+        width: 45%;
+        margin-bottom: $spacing-20;
+    }
+
+    &__skillTitle.MuiTypography-root{
+        font-size: $spacing-20;
+        font-family: $primary-font;
+        font-weight: 500;
+    }
+
+    &__label.MuiTypography-root{
+        font-size: $spacing-16;
+        font-family: $primary-font;
+        font-weight: 400;
+    }
+
+    &__skillProfiencyContainer{
+        display: flex;
+        flex-direction: row;
+        gap: $spacing-10;
+    }
+}

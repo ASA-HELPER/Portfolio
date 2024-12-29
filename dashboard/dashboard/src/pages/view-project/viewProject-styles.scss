@@ -1,0 +1,80 @@
+@import '../../theme/';
+
+.viewProject{
+    &__container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: $spacing-20 auto;
+        padding: $spacing-20;
+        gap:$spacing-10;
+        width: 70%;
+        height: 100%;
+    }
+
+    &__subContainer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__title.MuiTypography-root{
+        font-size: $spacing-30;
+        font-family: $primary-font;
+        font-weight: bold;
+    }
+
+    &__subtitle.MuiTypography-root{
+        font-size: $spacing-20;
+        font-family: $primary-font;
+        font-weight: 500;
+    }
+
+    &__image{
+        width: 100%;
+        height: $spacing-300;
+        border-radius: $spacing-5;
+    }
+
+    &__value.MuiTypography-root{
+        font-size: $spacing-16;
+        font-family: $primary-font;
+        font-weight: 300;
+    }
+
+    &__listValue{
+        font-size: $spacing-16;
+        font-family: $primary-font;
+        font-weight: 300;
+    }
+
+    &__link{
+        color: $blueberry;
+        text-decoration: none;
+    }
+}
+
+@include sm{
+    .viewProject{
+        &__title.MuiTypography-root{
+            font-size: $spacing-15;
+        }
+
+        &__subtitle.MuiTypography-root{
+            font-size: $spacing-12;
+        }
+
+        &__value.MuiTypography-root{
+            font-size: $spacing-10;
+        }
+
+        &__listValue{
+            font-size: $spacing-10;
+        }
+
+        &__buttonTitle.MuiButton-root{
+            font-size: $spacing-10;
+        }
+    }
+}

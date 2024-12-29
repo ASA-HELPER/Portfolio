@@ -1,0 +1,93 @@
+@import '../../theme/';
+
+.hero {
+  &__container {
+    width: 100%;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: $spacing-30;
+    margin-bottom: $spacing-5;
+    letter-spacing: $spacing-2;
+  }
+
+  &__subtitle {
+    font-size: $spacing-30;
+    margin-bottom: $spacing-10;
+    letter-spacing: $spacing-15;
+  }
+
+  &__socialLinks {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-10;
+    margin-top: $spacing-10;
+  }
+
+  &__socialIcon {
+    width: $spacing-50;
+    height: $spacing-50;
+  }
+
+  &__buttonsContainer {
+    display: flex;
+    gap: $spacing-20;
+    justify-content: center;
+    margin-top: $spacing-10;
+  }
+
+  &__githubButton.MuiButtonBase-root {
+    display: flex;
+    align-items: center;
+    gap: $spacing-3;
+    padding: $spacing-6 $spacing-20;
+    background-color: $coral-red;
+    color: $chinese-white;
+  }
+
+  &__githubButton.MuiButtonBase-root:hover {
+    border-color: $coral-red;
+    color: $coral-red;
+    background-color: $raisin-black;
+  }
+
+  &__resumeButton.MuiButtonBase-root{
+    display: flex;
+    align-items: center;
+    gap: $spacing-3;
+    padding: $spacing-6 $spacing-20;
+    border-color: $coral-red;
+    color: $coral-red;
+  }
+
+  &__resumeButton.MuiButtonBase-root:hover{
+    border-color: $chinese-white;
+    background-color: $coral-red;
+    color: $chinese-white;
+  }
+
+  &__aboutMe {
+    font-size: $spacing-16;
+    margin-top: $spacing-16;
+    letter-spacing: $spacing-2;
+  }
+
+  &__separator {
+    margin-top: $spacing-10;
+    border-top: $spacing-5 solid #ddd;
+  }
+}
+
+@include sm{
+  .hero{
+    &__title {
+      font-size: $spacing-20;
+    }
+  
+    &__subtitle {
+      font-size: $spacing-15;
+      letter-spacing: $spacing-8;
+    }
+  }
+}

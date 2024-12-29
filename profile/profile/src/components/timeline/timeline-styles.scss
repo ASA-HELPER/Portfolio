@@ -1,0 +1,109 @@
+@import '../../theme/';
+
+.timeline {
+    &__container {
+      width: 100%;
+    }
+  
+    &__header.MuiTypography-root {
+      text-transform: uppercase;
+      background-image: linear-gradient(
+        -225deg,
+        #231557 0%,
+        #44107a 29%,
+        #ff1361 67%,
+        #fff800 100%
+      );
+      background-size: auto auto;
+      background-clip: border-box;
+      background-size: 200% auto;
+      color: #fff;
+      background-clip: text;
+      text-fill-color: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textclip 2s linear infinite;
+      display: inline-block;
+      font-size: 50px;
+    }
+  
+    &__list {
+      position: relative;
+      border-left: 2px solid #e5e7eb;
+  
+      @media (prefers-color-scheme: dark) {
+        border-color: #374151;
+      }
+    }
+  
+    &__list-item {
+      margin-bottom: 2.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+  
+    &__icon {
+      position: absolute;
+      top: 0;
+      left: -0.75rem;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #93c5fd;
+      border-radius: 50%;
+      ring: 8px solid white;
+  
+      @media (prefers-color-scheme: dark) {
+        background-color: #3b82f6;
+        ring: 8px solid #1f2937;
+      }
+    }
+  
+    &__icon-svg {
+      width: 16px;
+      height: 16px;
+      color: #1e40af;
+  
+      @media (prefers-color-scheme: dark) {
+        color: #cbd5e1;
+      }
+    }
+  
+    &__title {
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #111827;
+  
+      @media (prefers-color-scheme: dark) {
+        color: white;
+      }
+    }
+  
+    &__date {
+      font-size: 0.875rem;
+      color: #6b7280;
+  
+      @media (prefers-color-scheme: dark) {
+        color: #9ca3af;
+      }
+    }
+  
+    &__description {
+      font-size: 1rem;
+      color: #4b5563;
+  
+      @media (prefers-color-scheme: dark) {
+        color: #d1d5db;
+      }
+    }
+
+    &__separator {
+      margin-top: $spacing-10;
+      border-top: $spacing-5 solid #ddd;
+      width: 100%;
+    }
+  }
+  

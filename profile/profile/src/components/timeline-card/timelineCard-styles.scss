@@ -1,0 +1,47 @@
+@import '../../theme/';
+
+.timelineCard{
+    &__title.MuiTypography-root{
+        font-size:$spacing-20;
+        font-style: $primary-font;
+        font-weight: $font-weight-medium;
+        color: $coral-red;
+    }
+
+    &__schedule.MuiTypography-root{
+        font-size:$spacing-20;
+        font-style: $primary-font;
+        font-weight: $font-weight-medium;
+        color: $coral-red;
+        margin: auto $spacing-0;
+        text-align: right;
+    }
+
+    &__description.MuiTypography-root{
+        font-size:$spacing-15;
+        font-style: $primary-font;
+        font-weight: $font-weight-medium;
+        color: $chinese-white;
+        text-align: justify;
+    }
+
+    &__iconContainer.MuiTimelineDot-root{
+        background-color: $coral-red;
+    }
+}
+
+@include sm{
+    .timelineCard{
+        &__schedule.MuiTypography-root{
+            font-size:$spacing-15;
+        }
+
+        &__title.MuiTypography-root{
+            font-size:$spacing-15;
+        }
+
+        &__description.MuiTypography-root{
+            font-size:$spacing-12;
+        }
+    }
+}

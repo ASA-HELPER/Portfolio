@@ -9,6 +9,11 @@ import dbConnection from './database/dbConnection.js';
 import cloudinary from 'cloudinary';
 import {errorMiddleware} from './middlewares/error.js'
 import messageRouter from "./router/messageRoutes.js"
+import userRouter from "./router/userRoutes.js"
+import timelineRouter from "./router/timelineRoutes.js"
+import techStackRouter from "./router/techStackRoutes.js"
+import skillRouter from "./router/skillRoutes.js"
+import projectRouter from "./router/projectRoutes.js"
 
 const app = express();
 dotenv.config({path:"./config/config.env"});
@@ -27,7 +32,14 @@ app.use(fileUpload({
     useTempFiles:true,
     tempFileDir:'/tmp/'
 }))
+
+// Routers
 app.use("/api/v1/message",messageRouter);
+app.use("/api/v1/user",userRouter);
+app.use("/api/v1/timeline",timelineRouter);
+app.use("/api/v1/techStack",techStackRouter);
+app.use("/api/v1/skill",skillRouter);
+app.use("/api/v1/project",projectRouter);
 
 // Database Connection
 dbConnection();

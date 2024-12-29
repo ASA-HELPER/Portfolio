@@ -1,0 +1,23 @@
+@import '../../theme/';
+
+.account{
+    &__container{
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__optionTitle.MuiTypography-root{
+        font-size: $spacing-20;
+        cursor: pointer;
+        font-weight: $font-weight-medium;
+        font-family: $primary-font;
+    }
+
+    &__sidebarContainer{
+        display: flex;
+        flex-direction: column;
+        margin-top: $spacing-50;
+        gap: $spacing-20;
+        padding: $spacing-10;
+    }
+}
