@@ -10,7 +10,6 @@ import { RootState } from "../../store/store";
 import { getUser } from "../../store/slices/userSlice";
 import CustomButton from "../button/CustomButton";
 import { ButtonVariant } from "../../constants/common-constants";
-import CustomSpinner from "../spinner/CustomSpinner";
 
 const Hero = () => {
   const dispatch = useAppDispatch();
@@ -19,8 +18,6 @@ const Hero = () => {
   useEffect(() => {
     dispatch(getUser());
   }, []);
-
-  if (!user) return <CustomSpinner spinnerSize={100} color="red"/>;
 
   return (
     <div className="hero__container">
