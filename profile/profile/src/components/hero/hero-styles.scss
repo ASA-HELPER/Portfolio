@@ -69,10 +69,11 @@
     color: $chinese-white;
   }
 
-  &__aboutMe {
+  &__aboutMe.MuiTypography-root {
     font-size: $spacing-16;
     margin-top: $spacing-16;
     letter-spacing: $spacing-2;
+    color: $chinese-white;
   }
 
   &__separator {

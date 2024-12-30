@@ -57,7 +57,7 @@ const Hero = () => {
           <CustomButton title="Resume" variant={ButtonVariant.Outlined} className="hero__resumeButton" startIcon={<OpenInNew />}/>
         </Link>
       </div>
-      <p className="hero__aboutMe">{user?.aboutMe}</p>
+      <Typography className="hero__aboutMe">{user?.aboutMe}</Typography>
       <hr className="hero__separator" />
     </div>
   );
