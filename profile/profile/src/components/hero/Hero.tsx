@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
-import { IconButton } from "@mui/material";
+import { IconButton, Typography } from "@mui/material";
 import { Facebook, GitHub, Instagram, LinkedIn, OpenInNew } from "@mui/icons-material";
 import './hero-styles.scss';
 import { useAppDispatch } from "../../hooks/storeHooks";
@@ -21,8 +21,8 @@ const Hero = () => {
 
   return (
     <div className="hero__container">
-      <h1 className="hero__title">Hey 👋, I'm Amandeep Singh</h1>
-      <h2 className="hero__subtitle">
+      <Typography className="hero__title">Hey 👋, I'm Amandeep Singh</Typography>
+      <Typography className="hero__subtitle">
         <Typewriter
           words={["Software Engineer", "FRONTEND DEVELOPER", "MERN DEVELOPER"]}
           loop={50}
@@ -31,7 +31,7 @@ const Hero = () => {
           deleteSpeed={50}
           delaySpeed={1000}
         />
-      </h2>
+      </Typography>
       <div className="hero__socialLinks">
         <Link to={user?.instagramURL} target="_blank">
           <IconButton className="hero__socialIcon">
