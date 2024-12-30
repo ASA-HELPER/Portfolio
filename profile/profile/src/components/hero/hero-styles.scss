@@ -6,16 +6,18 @@
     text-align: center;
   }
 
-  &__title {
+  &__title.MuiTypography-root {
     font-size: $spacing-30;
     margin-bottom: $spacing-5;
     letter-spacing: $spacing-2;
+    color: $chinese-white;
   }
 
-  &__subtitle {
+  &__subtitle.MuiTypography-root {
     font-size: $spacing-30;
     margin-bottom: $spacing-10;
     letter-spacing: $spacing-15;
+    color: $chinese-white;
   }
 
   &__socialLinks {
@@ -81,11 +83,11 @@
 
 @include sm{
   .hero{
-    &__title {
+    &__title.MuiTypography-root {
       font-size: $spacing-20;
     }
   
-    &__subtitle {
+    &__subtitle.MuiTypography-root {
       font-size: $spacing-15;
       letter-spacing: $spacing-8;
     }
