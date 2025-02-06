@@ -8,11 +8,12 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { getAllProjects } from "../../store/slices/projectSlice";
 import CustomButton from "../button/CustomButton";
+import CustomSpinner from "../spinner/CustomSpinner";
 
 const Portfolio = () => {
   const [viewAll, setViewAll] = useState(false);
   const dispatch = useAppDispatch();
-  const {projects} = useSelector((state:RootState)=>state.project)
+  const {projects,loading} = useSelector((state:RootState)=>state.project)
 
   useEffect(() => {
     dispatch(getAllProjects());
@@ -25,27 +26,33 @@ const Portfolio = () => {
           PROJECTS
         </Typography>
       </div>
-      <div className="portfolio__grid">
-        {viewAll
-          ? projects.map((element) => (
-              <Link to={`/project/${element._id}`} key={element._id}>
-                <img
-                  src={element.projectBanner && element.projectBanner.url}
-                  alt={element.title}
-                  className="portfolio__image"
-                />
-              </Link>
-            ))
-          : projects.slice(0, 9).map((element) => (
-              <Link to={`/project/${element._id}`} key={element._id}>
-                <img
-                  src={element.image && element.image.url}
-                  alt={element.title}
-                  className="portfolio__image"
-                />
-              </Link>
-            ))}
-      </div>
+      {
+        loading?(
+          <CustomSpinner color="purple" spinnerSize={100}/>
+        ):(
+          <div className="portfolio__grid">
+          {viewAll
+            ? projects.map((element) => (
+                <Link to={`/project/${element._id}`} key={element._id}>
+                  <img
+                    src={element.projectBanner && element.projectBanner.url}
+                    alt={element.title}
+                    className="portfolio__image"
+                  />
+                </Link>
+              ))
+            : projects.slice(0, 9).map((element) => (
+                <Link to={`/project/${element._id}`} key={element._id}>
+                  <img
+                    src={element.image && element.image.url}
+                    alt={element.title}
+                    className="portfolio__image"
+                  />
+                </Link>
+              ))}
+        </div>
+        )
+      }
       {projects.length > 6 && (
         <div className="portfolio__buttonContainer">
           <CustomButton className="portfolio__button" title={viewAll ? "Show Less" : "Show More"} handleClick={() => setViewAll(!viewAll)} fullWidth={false}/>

@@ -10,10 +10,11 @@ import { RootState } from "../../store/store";
 import { getUser } from "../../store/slices/userSlice";
 import CustomButton from "../button/CustomButton";
 import { ButtonVariant } from "../../constants/common-constants";
+import CustomSpinner from "../spinner/CustomSpinner";
 
 const Hero = () => {
   const dispatch = useAppDispatch();
-  const {user} = useSelector((state:RootState)=>state.user);
+  const {user,loading} = useSelector((state:RootState)=>state.user);
 
   useEffect(() => {
     dispatch(getUser());
@@ -32,32 +33,40 @@ const Hero = () => {
           delaySpeed={1000}
         />
       </Typography>
-      <div className="hero__socialLinks">
-        <Link to={user?.instagramURL} target="_blank">
-          <IconButton className="hero__socialIcon">
-            <Instagram color="secondary" />
-          </IconButton>
-        </Link>
-        <Link to={user?.facebookURL} target="_blank">
-          <IconButton className="hero__socialIcon">
-            <Facebook color="primary" />
-          </IconButton>
-        </Link>
-        <Link to={user?.linkedInURL} target="_blank">
-          <IconButton className="hero__socialIcon">
-            <LinkedIn color="primary" />
-          </IconButton>
-        </Link>
-      </div>
-      <div className="hero__buttonsContainer">
-        <Link to={user?.githubURL} target="_blank">
-          <CustomButton title="Github" variant={ButtonVariant.Contained} className="hero__githubButton" startIcon={<GitHub />}/>
-        </Link>
-        <Link to={user?.resume?.url} target="_blank">
-          <CustomButton title="Resume" variant={ButtonVariant.Outlined} className="hero__resumeButton" startIcon={<OpenInNew />}/>
-        </Link>
-      </div>
-      <Typography className="hero__aboutMe">{user?.aboutMe}</Typography>
+      {
+        loading?(
+          <CustomSpinner color="brown" spinnerSize={100}/>
+        ):(
+            <>
+              <div className="hero__socialLinks">
+                <Link to={user?.instagramURL} target="_blank">
+                  <IconButton className="hero__socialIcon">
+                    <Instagram color="secondary" />
+                  </IconButton>
+                </Link>
+                <Link to={user?.facebookURL} target="_blank">
+                  <IconButton className="hero__socialIcon">
+                    <Facebook color="primary" />
+                  </IconButton>
+                </Link>
+                <Link to={user?.linkedInURL} target="_blank">
+                  <IconButton className="hero__socialIcon">
+                    <LinkedIn color="primary" />
+                  </IconButton>
+                </Link>
+              </div>
+              <div className="hero__buttonsContainer">
+                <Link to={user?.githubURL} target="_blank">
+                  <CustomButton title="Github" variant={ButtonVariant.Contained} className="hero__githubButton" startIcon={<GitHub />} />
+                </Link>
+                <Link to={user?.resume?.url} target="_blank">
+                  <CustomButton title="Resume" variant={ButtonVariant.Outlined} className="hero__resumeButton" startIcon={<OpenInNew />}/>
+                </Link>
+              </div>
+              <Typography className="hero__aboutMe">{user?.aboutMe}</Typography>
+            </>
+        )
+      }
       <hr className="hero__separator" />
     </div>
   );
