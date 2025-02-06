@@ -9,10 +9,11 @@ import { getAllTimeline } from "../../store/slices/timelineSlice";
 import TimelineCard from "../timeline-card/TimelineCard";
 import WorkIcon from '@mui/icons-material/Work';
 import SchoolIcon from '@mui/icons-material/School';
+import CustomSpinner from "../spinner/CustomSpinner";
 
 const TimelineComponent = () => {
   const dispatch = useAppDispatch();
-  const {timeline} = useSelector((state:RootState)=>state.timeline);
+  const {timeline,loading} = useSelector((state:RootState)=>state.timeline);
 
   useEffect(() => {
     dispatch(getAllTimeline());
@@ -31,17 +32,23 @@ const TimelineComponent = () => {
       <Typography className="timeline__header">
         Timeline
       </Typography>
-      <Timeline position="alternate">
-        {timeline && timeline.map((item) => (
-          <TimelineCard 
-            key={item._id}
-            time={`${item.timeline.from} - ${item.timeline.to}`}
-            activity={item.title}
-            details={item.description}
-            Icon={getIcon(item.title)}
-          />
-        ))}
-      </Timeline>
+      {
+        loading?(
+          <CustomSpinner color="red" spinnerSize={100}/>
+        ):(
+          <Timeline position="alternate">
+            {timeline && timeline.map((item) => (
+              <TimelineCard 
+                key={item._id}
+                time={`${item.timeline.from} - ${item.timeline.to}`}
+                activity={item.title}
+                details={item.description}
+                Icon={getIcon(item.title)}
+              />
+            ))}
+          </Timeline>
+        )
+      }
       <hr className="about__separator" />
     </div>
   );
